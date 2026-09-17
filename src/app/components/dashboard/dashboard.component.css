@@ -58,6 +58,38 @@
   animation: floatBg4 30s infinite ease-in-out;
 }
 
+.bg-tulip-5 {
+  bottom: 25%;
+  left: 20%;
+  width: 190px;
+  transform: rotate(-15deg);
+  animation: floatBg1 27s infinite ease-in-out;
+}
+
+.bg-tulip-6 {
+  top: 65%;
+  right: 25%;
+  width: 175px;
+  transform: rotate(18deg);
+  animation: floatBg2 29s infinite ease-in-out;
+}
+
+.bg-tulip-7 {
+  top: 20%;
+  left: 45%;
+  width: 165px;
+  transform: rotate(-22deg);
+  animation: floatBg3 26s infinite ease-in-out;
+}
+
+.bg-tulip-8 {
+  bottom: 35%;
+  right: 5%;
+  width: 185px;
+  transform: rotate(12deg);
+  animation: floatBg4 31s infinite ease-in-out;
+}
+
 @keyframes floatBg1 {
   0%, 100% { transform: translateY(0) rotate(-20deg); opacity: 0.05; }
   50% { transform: translateY(-25px) rotate(-25deg); opacity: 0.08; }
@@ -176,6 +208,33 @@
   width: 125px;
   transform: translateY(-50%) rotate(-15deg);
   animation: floatTulip5 23s infinite ease-in-out;
+}
+
+/* Tulip 6 - Top Center */
+.tulip-6 {
+  top: 5%;
+  right: 50%;
+  width: 115px;
+  transform: translateX(50%) rotate(10deg);
+  animation: floatTulip1 24s infinite ease-in-out;
+}
+
+/* Tulip 7 - Middle Right */
+.tulip-7 {
+  top: 45%;
+  right: 5%;
+  width: 130px;
+  transform: translateY(-50%) rotate(18deg);
+  animation: floatTulip2 26s infinite ease-in-out;
+}
+
+/* Tulip 8 - Bottom Center */
+.tulip-8 {
+  bottom: 5%;
+  left: 50%;
+  width: 120px;
+  transform: translateX(-50%) rotate(-8deg);
+  animation: floatTulip3 25s infinite ease-in-out;
 }
 
 @keyframes floatTulip1 {
