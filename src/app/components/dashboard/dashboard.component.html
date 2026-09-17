@@ -1,0 +1,186 @@
+<div class="dashboard-page">
+  <!-- Interactive Letter Envelope Overlay -->
+  <div class="letter-overlay" *ngIf="showWelcomeLetter() && !authService.isAdmin()">
+    
+    <!-- Five Decorative Tulips -->
+    <div class="decorative-tulips">
+      <img src="assets/tulip-bouquet.png" class="tulip tulip-1" alt="">
+      <img src="assets/tulip-bouquet.png" class="tulip tulip-2" alt="">
+      <img src="assets/tulip-bouquet.png" class="tulip tulip-3" alt="">
+      <img src="assets/tulip-bouquet.png" class="tulip tulip-4" alt="">
+      <img src="assets/tulip-bouquet.png" class="tulip tulip-5" alt="">
+    </div>
+
+    <!-- Envelope Container -->
+    <div class="envelope-container" [class.opened]="envelopeOpened()">
+      
+      <!-- Closed Envelope (clickable) -->
+      <button 
+        class="envelope-button" 
+        *ngIf="!envelopeOpened()"
+        (click)="openEnvelope()"
+        aria-label="Open letter"
+        [attr.tabindex]="0"
+      >
+        <div class="envelope">
+          <!-- Envelope Body -->
+          <div class="envelope-body">
+            <div class="envelope-front"></div>
+          </div>
+          
+          <!-- Envelope Flap (Closed) -->
+          <div class="envelope-flap closed"></div>
+          
+          <!-- Heart Seal (on top of everything) -->
+          <div class="envelope-seal">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#D6336C">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Opened Envelope with Letter -->
+      <div class="envelope-opened" *ngIf="envelopeOpened()">
+        <!-- Envelope Body (stays in place) -->
+        <div class="envelope-body-open">
+          <div class="envelope-front-open"></div>
+        </div>
+        
+        <!-- Envelope Flap (opens) -->
+        <div class="envelope-flap-open"></div>
+        
+        <!-- Letter (slides out) -->
+        <div class="letter-paper">
+          <!-- Close Button -->
+          <button class="letter-close-btn" (click)="closeEnvelope()" aria-label="Close letter">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+
+          <!-- Letter Content -->
+          <div class="letter-content">
+            <h1 class="letter-title">Boss Madam.</h1>
+            
+            <div class="letter-body">
+              <p>I made this website just for you—not because I think I already know everything about you, but because I want to know you more. There are still so many things about you that I haven't discovered yet, and I think that's something beautiful. Getting to know someone isn't something that has to happen all at once. Sometimes, it's in the smallest details, the random stories, the simple preferences, and the little things that slowly help you understand who someone really is.</p>
+
+              <p>So I made these questions for you. Some might be simple, some might be random, and some might make you think a little deeper. But behind every question is simply my curiosity about you. I want to know the things you like, the things you don't, the things that make you happy, the things that make you laugh, and even the little things you might think are unimportant.</p>
+
+              <p>I want to know your favorite things, your interests, your dreams, the places you'd love to visit, the things you enjoy doing when you're alone, and the little habits that make you you. I want to hear about the memories that mean something to you, the experiences that shaped you, and the things you've always wanted to try.</p>
+
+              <p>And if there are questions that you don't feel like answering, that's completely okay. You don't have to share anything you're not comfortable with. This isn't meant to pressure you into telling me everything. I just want to give you a little space where you can share pieces of yourself with me, whenever you're ready.</p>
+
+              <p>Maybe after answering these questions, I'll discover things about you that I never knew. Maybe I'll find out that we have more things in common than I expected. Maybe I'll learn about some of your little quirks and eventually find myself smiling whenever I remember them. And maybe some of your answers will lead to even more questions and conversations between us.</p>
+
+              <p>I don't expect to know every part of you immediately, Rizh. I just want the chance to keep learning. Slowly, naturally, and genuinely.</p>
+
+              <p>Because sometimes, getting to know someone isn't about asking the biggest questions. It's about being interested in the little details that make that person special.</p>
+
+              <p class="letter-signature">Enjoy answering, Rizh.</p>
+            </div>
+
+            <!-- Action Button -->
+            <button class="btn btn-primary btn-lg letter-action-btn" (click)="closeWelcomeLetter()">
+              Let's Begin
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Decoration -->
+  <div class="bg-decoration">
+    <img src="assets/tulip-bouquet.png" class="floating-tulip bg-tulip-1" alt="">
+    <img src="assets/tulip-bouquet.png" class="floating-tulip bg-tulip-2" alt="">
+    <img src="assets/tulip-bouquet.png" class="floating-tulip bg-tulip-3" alt="">
+    <img src="assets/tulip-bouquet.png" class="floating-tulip bg-tulip-4" alt="">
+  </div>
+
+  <!-- Main Dashboard Content -->
+  <div class="dashboard-container container">
+    <!-- Header -->
+    <header class="dashboard-header">
+      <div class="header-content">
+        <div class="header-left">
+          <h1 class="dashboard-title">Welcome, {{ userName() }}</h1>
+          <p class="dashboard-subtitle">Let's discover more about you</p>
+        </div>
+        <div class="header-actions">
+          <button (click)="showEnvelope()" class="btn btn-outline" *ngIf="!authService.isAdmin()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            Back to Message
+          </button>
+          <button *ngIf="authService.isAdmin()" (click)="goToAdmin()" class="btn btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            Admin Dashboard
+          </button>
+          <button (click)="logout()" class="btn btn-outline">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Categories Grid -->
+    <div class="categories-section" *ngIf="!loading()">
+      <h2 class="section-title">Categories</h2>
+      <div class="categories-grid">
+        <div 
+          class="category-card card card-interactive" 
+          *ngFor="let category of categories()"
+          (click)="navigateToCategory(category.id)"
+        >
+          <!-- Icon -->
+          <div class="category-icon">
+            <app-category-icon [iconName]="category.icon" [size]="48"></app-category-icon>
+          </div>
+          
+          <!-- Content -->
+          <div class="category-content">
+            <h3 class="category-name">{{ category.name }}</h3>
+            <p class="category-description">{{ category.description }}</p>
+          </div>
+          
+          <!-- Completed Badge (if 100%) -->
+          <div class="completed-badge" *ngIf="getCategoryPercentage(category) === 100">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            Completed
+          </div>
+          
+          <!-- Action Button -->
+          <button class="btn btn-secondary category-btn">
+            {{ getCategoryPercentage(category) === 100 ? 'Review' : (getCategoryPercentage(category) > 0 ? 'Continue' : 'Start') }}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-state" *ngIf="loading()">
+      <div class="spinner"></div>
+      <p>Loading your love book...</p>
+    </div>
+  </div>
+</div>

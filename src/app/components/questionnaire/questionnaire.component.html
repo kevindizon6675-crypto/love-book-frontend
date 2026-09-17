@@ -1,0 +1,142 @@
+<div class="questionnaire-page">
+  <!-- Background Decoration -->
+  <div class="bg-decoration">
+    <img src="assets/tulip-bouquet.png" class="floating-tulip bg-tulip-1" alt="">
+    <img src="assets/tulip-bouquet.png" class="floating-tulip bg-tulip-2" alt="">
+  </div>
+
+  <div class="questionnaire-container container-md">
+    <!-- Header -->
+    <header class="questionnaire-header">
+      <button class="btn btn-ghost back-btn" (click)="goBack()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Back to Dashboard
+      </button>
+      
+      <div class="category-badge" *ngIf="category()">
+        <app-category-icon [iconName]="category()!.icon" [size]="24"></app-category-icon>
+        <span>{{ category()?.name }}</span>
+      </div>
+    </header>
+
+    <!-- Progress Section -->
+    <div class="progress-section card" *ngIf="!loading() && category()?.name !== 'Messages for Kevs'">
+      <div class="progress-info">
+        <div class="progress-text">
+          <span class="current-question">Question {{ currentIndex() + 1 }} of {{ questions().length }}</span>
+          <span class="answered-count">{{ answeredCount }} answered</span>
+        </div>
+        <div class="progress-percentage">{{ getProgress() }}%</div>
+      </div>
+      <div class="progress-bar progress-bar-lg">
+        <div class="progress-fill" [style.width.%]="progress"></div>
+      </div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="question-section" *ngIf="!loading() && currentQuestion">
+      <div class="question-card card card-lg">
+        <!-- Question Number Badge -->
+        <div class="question-number-badge badge" *ngIf="category()?.name !== 'Messages for Kevs'">
+          Question {{ currentIndex() + 1 }}
+        </div>
+
+        <!-- Question Text -->
+        <h2 class="question-text" *ngIf="category()?.name !== 'Messages for Kevs'">{{ currentQuestion.question_text }}</h2>
+        
+        <!-- Messages for You Title -->
+        <h2 class="question-text" *ngIf="category()?.name === 'Messages for Kevs'" style="text-align: center;">
+         If there’s something you’d like to tell me, please leave a message here.
+        </h2>
+
+        <!-- Answer Input -->
+        <div class="answer-section">
+          <label class="form-label" *ngIf="category()?.name !== 'Messages for Kevs'">Your Answer</label>
+          <textarea
+            [(ngModel)]="currentAnswer"
+            [placeholder]="category()?.name === 'Messages for Kevs' ? 'Write your message here...' : 'Share your thoughts here...'"
+            class="form-textarea answer-textarea"
+            (blur)="saveCurrentAnswer()"
+            rows="8"
+          ></textarea>
+          <span class="form-help" *ngIf="!saving() && category()?.name !== 'Messages for Kevs'">
+            Your answer is automatically saved
+          </span>
+          <span class="form-help saving-indicator" *ngIf="saving()">
+            <span class="spinner-small"></span>
+            Saving...
+          </span>
+        </div>
+
+        <!-- Navigation -->
+        <div class="question-navigation" *ngIf="category()?.name !== 'Messages for Kevs'">
+          <button 
+            class="btn btn-outline btn-nav" 
+            (click)="previous()"
+            [disabled]="currentIndex() === 0 || saving()"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Previous
+          </button>
+          
+          <button 
+            class="btn btn-primary btn-nav" 
+            (click)="next()"
+            [disabled]="saving()"
+          >
+            {{ currentIndex() === questions().length - 1 ? 'Finish' : 'Next' }}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Messages for You: Submit Button Only -->
+        <div class="question-navigation" *ngIf="category()?.name === 'Messages for Kevs'" style="display: flex; justify-content: center;">
+          <button 
+            class="btn btn-primary btn-lg" 
+            (click)="next()"
+            [disabled]="saving()"
+            style="min-width: 200px;"
+          >
+            Submit Message
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-state" *ngIf="loading()">
+      <div class="spinner"></div>
+      <p>Loading questions...</p>
+    </div>
+  </div>
+
+  <!-- Completion Overlay -->
+  <div class="completion-overlay" *ngIf="showCompletionMessage()">
+    <div class="completion-container">
+      <div class="completion-card card card-lg">
+        <h2 class="completion-title">{{ category()?.name }} Completed!</h2>
+        <p class="completion-message">{{ completionMessage() }}</p>
+        <button class="btn btn-primary btn-lg" (click)="closeCompletionAndReturn()" style="margin-top: var(--space-xl); min-width: 200px;">
+          Close
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

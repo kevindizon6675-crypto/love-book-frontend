@@ -1,0 +1,449 @@
+/* ============================================
+   ADMIN PAGE
+   ============================================ */
+
+.admin-page {
+  min-height: 100vh;
+  position: relative;
+  padding: var(--space-xl) 0;
+}
+
+/* Background Decoration */
+.bg-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-tulip {
+  position: absolute;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+.bg-tulip-1 {
+  top: 20%;
+  left: 10%;
+  width: 180px;
+  transform: rotate(-15deg);
+  animation: floatAdmin1 28s infinite ease-in-out;
+}
+
+.bg-tulip-2 {
+  bottom: 15%;
+  right: 12%;
+  width: 200px;
+  transform: rotate(20deg);
+  animation: floatAdmin2 32s infinite ease-in-out;
+}
+
+@keyframes floatAdmin1 {
+  0%, 100% { transform: translateY(0) rotate(-15deg); opacity: 0.04; }
+  50% { transform: translateY(-28px) rotate(-20deg); opacity: 0.07; }
+}
+
+@keyframes floatAdmin2 {
+  0%, 100% { transform: translateY(0) rotate(20deg); opacity: 0.05; }
+  50% { transform: translateY(-32px) rotate(25deg); opacity: 0.08; }
+}
+
+/* Container */
+.admin-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.admin-header {
+  margin-bottom: var(--space-2xl);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.admin-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.02em;
+}
+
+.admin-subtitle {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: var(--font-base);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   USERS SECTION
+   ============================================ */
+
+.users-section {
+  margin-bottom: var(--space-3xl);
+}
+
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: var(--font-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xl);
+  letter-spacing: -0.01em;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+/* User Card */
+.user-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  transition: all var(--transition-base);
+}
+
+.user-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-light);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.user-avatar {
+  width: 56px;
+  height: 56px;
+  background: var(--primary-soft);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.user-name {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+  letter-spacing: -0.01em;
+}
+
+.user-email {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: var(--font-sm);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Progress Circle */
+.user-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.progress-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-fill {
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.progress-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.progress-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.progress-text {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.progress-label {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: var(--font-sm);
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Responsive Users Grid */
+@media (max-width: 389px) {
+  .user-card {
+    padding: 18px;
+    gap: var(--space-md);
+  }
+  
+  .user-avatar {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .user-progress {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  
+  .progress-circle {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .progress-number {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 767px) {
+  .user-progress {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .progress-circle {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .users-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .users-grid {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+}
+
+/* ============================================
+   ANSWERS SECTION
+   ============================================ */
+
+.answers-section {
+  margin-bottom: var(--space-3xl);
+}
+
+.back-btn {
+  margin-bottom: var(--space-xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: var(--space-xl);
+}
+
+.filter-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.filter-count {
+  font-size: var(--font-xs);
+  opacity: 0.8;
+}
+
+/* Answers Grid */
+.answers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.answer-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.answer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.answer-question {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: var(--leading-normal);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.answer-text {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: var(--font-sm);
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Responsive Answers Grid */
+@media (max-width: 389px) {
+  .answer-card {
+    padding: 18px;
+  }
+  
+  .answer-question {
+    font-size: 15px;
+  }
+  
+  .answer-text {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .answers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .answers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Filter buttons responsive */
+@media (max-width: 479px) {
+  .filter-buttons {
+    flex-direction: column;
+  }
+  
+  .filter-btn {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .admin-page {
+    padding: var(--space-md) 0;
+  }
+}
+
+/* Header responsive */
+@media (max-width: 767px) {
+  .admin-title {
+    font-size: 24px;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+  
+  .header-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .header-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Background tulips */
+@media (max-width: 479px) {
+  .bg-tulip-1,
+  .bg-tulip-2 {
+    width: 140px;
+    opacity: 0.04;
+  }
+}

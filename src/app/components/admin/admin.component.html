@@ -1,0 +1,168 @@
+<div class="admin-page">
+  <!-- Background Decoration -->
+  <div class="bg-decoration">
+    <img src="assets/tulip-bouquet.png" class="floating-tulip bg-tulip-1" alt="">
+    <img src="assets/tulip-bouquet.png" class="floating-tulip bg-tulip-2" alt="">
+  </div>
+
+  <div class="admin-container container">
+    <!-- Header -->
+    <header class="admin-header">
+      <div class="header-content">
+        <div class="header-left">
+          <h1 class="admin-title">Admin Dashboard</h1>
+          <p class="admin-subtitle" *ngIf="!selectedUser()">View all user responses</p>
+          <p class="admin-subtitle" *ngIf="selectedUser()">{{ selectedUser()?.name }}'s Answers</p>
+        </div>
+        <div class="header-actions">
+          <button (click)="goToDashboard()" class="btn btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            My Dashboard
+          </button>
+          <button (click)="logout()" class="btn btn-outline">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Users List -->
+    <div class="users-section" *ngIf="!selectedUser() && !loading()">
+      <h2 class="section-title">Users</h2>
+      <div class="users-grid">
+        <div 
+          class="user-card card card-interactive" 
+          *ngFor="let user of users()"
+          (click)="selectUser(user)"
+        >
+          <!-- User Info -->
+          <div class="user-info">
+            <div class="user-avatar">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="user-name">{{ user.name }}</h3>
+              <p class="user-email">{{ user.email }}</p>
+            </div>
+          </div>
+          
+          <!-- Progress -->
+          <div class="user-progress">
+            <div class="progress-circle">
+              <svg class="progress-ring" width="80" height="80">
+                <circle 
+                  class="progress-ring-circle"
+                  stroke="var(--border-light)"
+                  stroke-width="6"
+                  fill="transparent"
+                  r="34"
+                  cx="40"
+                  cy="40"
+                />
+                <circle 
+                  class="progress-ring-fill"
+                  stroke="var(--primary)"
+                  stroke-width="6"
+                  fill="transparent"
+                  r="34"
+                  cx="40"
+                  cy="40"
+                  [style.strokeDasharray]="'213.628'"
+                  [style.strokeDashoffset]="213.628 * (1 - user.progress / 100)"
+                />
+              </svg>
+              <span class="progress-number">{{ user.progress }}%</span>
+            </div>
+            <div class="progress-details">
+              <span class="progress-text">{{ user.answeredQuestions }} / {{ user.totalQuestions }}</span>
+              <span class="progress-label">Questions Answered</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Answers -->
+    <div class="answers-section" *ngIf="selectedUser()">
+      <button class="btn btn-ghost back-btn" (click)="goBack()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Back to Users
+      </button>
+
+      <!-- Category Filters -->
+      <div class="filter-section card">
+        <h3 class="filter-title">Filter by Category</h3>
+        <div class="filter-buttons">
+          <button 
+            class="filter-btn btn-sm" 
+            [class.btn-primary]="!selectedCategory()"
+            [class.btn-outline]="selectedCategory()"
+            (click)="clearFilter()"
+          >
+            All Categories
+          </button>
+          <button 
+            class="filter-btn btn-sm" 
+            *ngFor="let cat of categoryProgress()"
+            [class.btn-primary]="selectedCategory() === cat.id"
+            [class.btn-outline]="selectedCategory() !== cat.id"
+            (click)="filterByCategory(cat.id)"
+          >
+            <app-category-icon [iconName]="cat.icon" [size]="16"></app-category-icon>
+            {{ cat.name }}
+            <span class="filter-count">({{ cat.answered_questions }}/{{ cat.total_questions }})</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Answers Grid -->
+      <div class="answers-grid" *ngIf="!loadingAnswers()">
+        <div class="answer-card card" *ngFor="let answer of userAnswers()">
+          <div class="answer-header">
+            <span class="category-badge badge">
+              <app-category-icon [iconName]="answer.category_icon" [size]="14"></app-category-icon>
+              {{ answer.category_name }}
+            </span>
+          </div>
+          <h4 class="answer-question">{{ answer.question_text }}</h4>
+          <p class="answer-text">{{ answer.answer_text }}</p>
+        </div>
+
+        <div class="empty-state" *ngIf="userAnswers().length === 0">
+          <div class="empty-state-icon">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <p>No answers yet in this category</p>
+        </div>
+      </div>
+
+      <div class="loading-state" *ngIf="loadingAnswers()">
+        <div class="spinner"></div>
+        <p>Loading answers...</p>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-state" *ngIf="loading()">
+      <div class="spinner"></div>
+      <p>Loading users...</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,214 @@
+.welcome-container {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #fff8f5 0%, #ffe8f0 50%, #fff0f8 100%);
+}
+
+.tulip-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://png.pngtree.com/png-clipart/20240710/original/pngtree-watercolor-bouquet-of-pink-and-red-tulips-with-a-bow-clipart-png-image_15515535.png');
+  background-size: 400px;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tulip-bg::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 250px;
+  height: 250px;
+  background-image: url('https://png.pngtree.com/png-clipart/20240710/original/pngtree-watercolor-bouquet-of-pink-and-red-tulips-with-a-bow-clipart-png-image_15515535.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  transform: rotate(-15deg);
+}
+
+.tulip-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 100px;
+  left: 100px;
+  width: 200px;
+  height: 200px;
+  background-image: url('https://png.pngtree.com/png-clipart/20240710/original/pngtree-watercolor-bouquet-of-pink-and-red-tulips-with-a-bow-clipart-png-image_15515535.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  transform: rotate(25deg);
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+}
+
+.letter-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 60px 50px;
+  box-shadow: 0 20px 60px rgba(233, 30, 99, 0.2);
+  border: 2px solid rgba(233, 30, 99, 0.1);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.greeting {
+  font-size: 2.5rem;
+  color: #e91e63;
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.letter-content {
+  line-height: 1.8;
+  color: #4a4a4a;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.letter-content p {
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-out;
+  animation-fill-mode: both;
+}
+
+.letter-content p:nth-child(1) { animation-delay: 0.1s; }
+.letter-content p:nth-child(2) { animation-delay: 0.2s; }
+.letter-content p:nth-child(3) { animation-delay: 0.3s; }
+.letter-content p:nth-child(4) { animation-delay: 0.4s; }
+.letter-content p:nth-child(5) { animation-delay: 0.5s; }
+.letter-content p:nth-child(6) { animation-delay: 0.6s; }
+.letter-content p:nth-child(7) { animation-delay: 0.7s; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.closing {
+  font-weight: 600;
+  color: #e91e63;
+  margin-top: 25px !important;
+}
+
+.enjoy {
+  text-align: center;
+  font-style: italic;
+  color: #c2185b;
+  font-size: 1.1rem;
+  margin-top: 20px !important;
+}
+
+.continue-btn {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 40px auto 0;
+  padding: 18px;
+  background: linear-gradient(135deg, #e91e63, #c2185b);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+}
+
+.continue-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(233, 30, 99, 0.4);
+}
+
+.continue-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .letter-card {
+    padding: 40px 30px;
+  }
+
+  .greeting {
+    font-size: 2rem;
+  }
+
+  .letter-content {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .tulip-bg {
+    background-size: 250px;
+  }
+
+  .tulip-bg::before {
+    width: 150px;
+    height: 150px;
+    top: 20px;
+    left: 20px;
+  }
+
+  .tulip-bg::after {
+    width: 120px;
+    height: 120px;
+    bottom: 50px;
+    left: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-card {
+    padding: 30px 20px;
+  }
+
+  .greeting {
+    font-size: 1.6rem;
+  }
+
+  .letter-content {
+    font-size: 0.95rem;
+  }
+
+  .continue-btn {
+    font-size: 1.1rem;
+  }
+}

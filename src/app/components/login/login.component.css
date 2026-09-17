@@ -1,0 +1,227 @@
+/* ============================================
+   LOGIN PAGE
+   ============================================ */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FFF7FA 0%, #FFF0F5 50%, #FFF7FA 100%);
+}
+
+/* Background Decoration */
+.bg-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-tulip {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+  filter: blur(0.5px);
+}
+
+.tulip-1 {
+  top: 10%;
+  left: 5%;
+  width: 180px;
+  transform: rotate(-25deg);
+  animation: float1 25s infinite ease-in-out;
+}
+
+.tulip-2 {
+  bottom: 10%;
+  right: 8%;
+  width: 200px;
+  transform: rotate(15deg);
+  animation: float2 30s infinite ease-in-out;
+}
+
+.tulip-3 {
+  top: 50%;
+  right: 10%;
+  width: 160px;
+  transform: translateY(-50%) rotate(-10deg);
+  animation: float3 28s infinite ease-in-out;
+}
+
+@keyframes float1 {
+  0%, 100% {
+    transform: translateY(0) rotate(-25deg);
+    opacity: 0.06;
+  }
+  50% {
+    transform: translateY(-30px) rotate(-20deg);
+    opacity: 0.10;
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translateY(0) rotate(15deg);
+    opacity: 0.08;
+  }
+  50% {
+    transform: translateY(-25px) rotate(20deg);
+    opacity: 0.12;
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0) rotate(-10deg);
+    opacity: 0.07;
+  }
+  50% {
+    transform: translateY(-50%) translateX(-20px) rotate(-5deg);
+    opacity: 0.11;
+  }
+}
+
+/* Login Container */
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+}
+
+.login-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+/* Login Header */
+.login-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.login-title {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: var(--font-3xl);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+}
+
+.login-subtitle {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: var(--font-sm);
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-submit {
+  width: 100%;
+  margin-top: var(--space-md);
+}
+
+/* Server Error */
+.server-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 12px 16px;
+  background: var(--error-light);
+  color: var(--error);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  margin-bottom: var(--space-md);
+}
+
+.server-error svg {
+  flex-shrink: 0;
+}
+
+/* Loading Text */
+.loading-text {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* Responsive */
+@media (max-width: 374px) {
+  .login-page {
+    padding: var(--space-md);
+  }
+  
+  .login-card {
+    padding: var(--space-lg);
+  }
+  
+  .login-title {
+    font-size: 22px;
+  }
+  
+  .login-subtitle {
+    font-size: 13px;
+  }
+  
+  .floating-tulip {
+    width: 120px;
+    opacity: 0.05;
+  }
+  
+  .tulip-1 { width: 100px; }
+  .tulip-2 { width: 110px; }
+  
+  /* Hide tulip 3 on smallest screens */
+  .tulip-3 {
+    display: none;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 479px) {
+  .login-page {
+    padding: var(--space-md);
+  }
+  
+  .login-card {
+    padding: var(--space-xl);
+  }
+  
+  .login-title {
+    font-size: 24px;
+  }
+  
+  .floating-tulip {
+    width: 140px;
+  }
+  
+  .tulip-1 { width: 120px; }
+  .tulip-2 { width: 130px; }
+  .tulip-3 { width: 110px; }
+}
