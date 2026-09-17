@@ -329,20 +329,20 @@ import { CommonModule } from '@angular/common';
     /* Mobile: Show ALL 30 tulips and increase opacity for visibility */
     @media (max-width: 767px) {
       .global-tulip {
-        opacity: 0.15; /* Mas visible sa mobile */
+        opacity: 0.25; /* MAS VISIBLE PA! */
       }
 
       /* Keep all 30 tulips but adjust sizes */
       .tulip-1, .tulip-2, .tulip-3, .tulip-4, .tulip-5,
       .tulip-6, .tulip-7, .tulip-8, .tulip-9, .tulip-10,
       .tulip-11, .tulip-12, .tulip-13, .tulip-14, .tulip-15 {
-        width: 130px;
+        width: 140px; /* Larger */
       }
 
       .tulip-16, .tulip-17, .tulip-18, .tulip-19, .tulip-20,
       .tulip-21, .tulip-22, .tulip-23, .tulip-24, .tulip-25,
       .tulip-26, .tulip-27, .tulip-28, .tulip-29, .tulip-30 {
-        width: 120px;
+        width: 130px; /* Larger */
       }
     }
 
