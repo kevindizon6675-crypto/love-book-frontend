@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterOutlet, CommonModule],
   template: `
-    <!-- Global Floating Tulips Background -->
+    <!-- Global Floating Tulips Background - MARAMI! -->
     <div class="global-tulips">
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-1" alt="">
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-2" alt="">
@@ -19,6 +19,16 @@ import { CommonModule } from '@angular/common';
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-8" alt="">
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-9" alt="">
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-10" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-11" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-12" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-13" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-14" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-15" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-16" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-17" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-18" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-19" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-20" alt="">
     </div>
     <router-outlet></router-outlet>
   `,
@@ -114,6 +124,76 @@ import { CommonModule } from '@angular/common';
       animation: floatTulip1 31s infinite;
     }
 
+    .tulip-11 {
+      width: 175px;
+      top: 12%;
+      left: 20%;
+      animation: floatTulip2 24s infinite;
+    }
+
+    .tulip-12 {
+      width: 165px;
+      top: 35%;
+      right: 25%;
+      animation: floatTulip3 26s infinite;
+    }
+
+    .tulip-13 {
+      width: 180px;
+      bottom: 15%;
+      right: 30%;
+      animation: floatTulip1 29s infinite;
+    }
+
+    .tulip-14 {
+      width: 155px;
+      top: 55%;
+      left: 18%;
+      animation: floatTulip2 27s infinite;
+    }
+
+    .tulip-15 {
+      width: 190px;
+      bottom: 45%;
+      right: 12%;
+      animation: floatTulip3 25s infinite;
+    }
+
+    .tulip-16 {
+      width: 170px;
+      top: 8%;
+      right: 40%;
+      animation: floatTulip1 30s infinite;
+    }
+
+    .tulip-17 {
+      width: 185px;
+      bottom: 25%;
+      left: 35%;
+      animation: floatTulip2 28s infinite;
+    }
+
+    .tulip-18 {
+      width: 160px;
+      top: 48%;
+      left: 8%;
+      animation: floatTulip3 32s infinite;
+    }
+
+    .tulip-19 {
+      width: 175px;
+      bottom: 55%;
+      right: 8%;
+      animation: floatTulip1 26s infinite;
+    }
+
+    .tulip-20 {
+      width: 165px;
+      top: 82%;
+      left: 60%;
+      animation: floatTulip2 31s infinite;
+    }
+
     /* Floating animations with different patterns */
     @keyframes floatTulip1 {
       0%, 100% {
@@ -160,19 +240,21 @@ import { CommonModule } from '@angular/common';
       }
     }
 
-    /* Mobile: Reduce tulip count and size */
+    /* Mobile: Show MORE tulips and increase opacity for visibility */
     @media (max-width: 767px) {
       .global-tulip {
-        opacity: 0.05;
+        opacity: 0.12; /* Mas visible sa mobile */
       }
 
-      .tulip-1, .tulip-2, .tulip-3, .tulip-4, .tulip-5 {
-        width: 120px;
-      }
-
-      /* Hide some tulips on mobile */
+      /* Keep all 20 tulips but adjust sizes */
+      .tulip-1, .tulip-2, .tulip-3, .tulip-4, .tulip-5,
       .tulip-6, .tulip-7, .tulip-8, .tulip-9, .tulip-10 {
-        display: none;
+        width: 140px;
+      }
+
+      .tulip-11, .tulip-12, .tulip-13, .tulip-14, .tulip-15,
+      .tulip-16, .tulip-17, .tulip-18, .tulip-19, .tulip-20 {
+        width: 130px;
       }
     }
 

@@ -22,7 +22,7 @@
 
 .floating-tulip {
   position: absolute;
-  opacity: 0.05;
+  opacity: 0.12; /* Mas visible na */
   mix-blend-mode: multiply;
 }
 
@@ -72,6 +72,38 @@
   width: 175px;
   transform: rotate(-12deg);
   animation: floatQuestionnaire2 29s infinite ease-in-out;
+}
+
+.bg-tulip-7 {
+  bottom: 45%;
+  right: 18%;
+  width: 185px;
+  transform: rotate(20deg);
+  animation: floatQuestionnaire1 26s infinite ease-in-out;
+}
+
+.bg-tulip-8 {
+  top: 68%;
+  left: 25%;
+  width: 165px;
+  transform: rotate(-25deg);
+  animation: floatQuestionnaire2 31s infinite ease-in-out;
+}
+
+.bg-tulip-9 {
+  top: 8%;
+  right: 30%;
+  width: 180px;
+  transform: rotate(18deg);
+  animation: floatQuestionnaire1 24s infinite ease-in-out;
+}
+
+.bg-tulip-10 {
+  bottom: 10%;
+  left: 50%;
+  width: 170px;
+  transform: rotate(-14deg);
+  animation: floatQuestionnaire2 28s infinite ease-in-out;
 }
 
 @keyframes floatQuestionnaire1 {

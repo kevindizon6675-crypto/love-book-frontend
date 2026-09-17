@@ -90,6 +90,38 @@
   animation: floatBg4 31s infinite ease-in-out;
 }
 
+.bg-tulip-9 {
+  top: 18%;
+  left: 30%;
+  width: 175px;
+  transform: rotate(-28deg);
+  animation: floatBg1 24s infinite ease-in-out;
+}
+
+.bg-tulip-10 {
+  bottom: 12%;
+  left: 40%;
+  width: 190px;
+  transform: rotate(22deg);
+  animation: floatBg2 26s infinite ease-in-out;
+}
+
+.bg-tulip-11 {
+  top: 55%;
+  right: 35%;
+  width: 165px;
+  transform: rotate(-16deg);
+  animation: floatBg3 28s infinite ease-in-out;
+}
+
+.bg-tulip-12 {
+  bottom: 50%;
+  left: 15%;
+  width: 180px;
+  transform: rotate(14deg);
+  animation: floatBg4 27s infinite ease-in-out;
+}
+
 @keyframes floatBg1 {
   0%, 100% { transform: translateY(0) rotate(-20deg); opacity: 0.05; }
   50% { transform: translateY(-25px) rotate(-25deg); opacity: 0.08; }
@@ -237,6 +269,42 @@
   animation: floatTulip3 25s infinite ease-in-out;
 }
 
+/* Tulip 9 - Top Left 2 */
+.tulip-9 {
+  top: 22%;
+  left: 8%;
+  width: 115px;
+  transform: rotate(-22deg);
+  animation: floatTulip1 26s infinite ease-in-out;
+}
+
+/* Tulip 10 - Bottom Right 2 */
+.tulip-10 {
+  bottom: 18%;
+  right: 18%;
+  width: 125px;
+  transform: rotate(16deg);
+  animation: floatTulip2 28s infinite ease-in-out;
+}
+
+/* Tulip 11 - Middle Center Left */
+.tulip-11 {
+  top: 38%;
+  left: 12%;
+  width: 110px;
+  transform: rotate(-12deg);
+  animation: floatTulip3 24s infinite ease-in-out;
+}
+
+/* Tulip 12 - Middle Center Right */
+.tulip-12 {
+  top: 42%;
+  right: 8%;
+  width: 118px;
+  transform: rotate(14deg);
+  animation: floatTulip1 27s infinite ease-in-out;
+}
+
 @keyframes floatTulip1 {
   0%, 100% { 
     transform: translateY(0) rotate(-20deg); 
@@ -292,51 +360,65 @@
   }
 }
 
-/* Mobile: Hide some tulips and reduce size */
+/* Mobile: Show all tulips with better visibility */
 @media (max-width: 374px) {
   .tulip {
-    width: 80px;
-    opacity: 0.10;
+    width: 90px;
+    opacity: 0.18; /* Mas visible */
   }
   
-  .tulip-1 { width: 70px; }
-  .tulip-2 { width: 75px; }
-  .tulip-3 { width: 65px; }
-  
-  /* Hide tulip 4 and 5 on smallest screens */
-  .tulip-4,
-  .tulip-5 {
-    display: none;
-  }
+  .tulip-1 { width: 85px; }
+  .tulip-2 { width: 90px; }
+  .tulip-3 { width: 80px; }
+  .tulip-4 { width: 85px; }
+  .tulip-5 { width: 88px; }
+  .tulip-6 { width: 82px; }
+  .tulip-7 { width: 87px; }
+  .tulip-8 { width: 84px; }
+  .tulip-9 { width: 83px; }
+  .tulip-10 { width: 86px; }
+  .tulip-11 { width: 81px; }
+  .tulip-12 { width: 89px; }
 }
 
 @media (min-width: 375px) and (max-width: 389px) {
   .tulip {
-    width: 90px;
-    opacity: 0.12;
+    width: 100px;
+    opacity: 0.18;
   }
   
-  .tulip-1 { width: 80px; }
-  .tulip-2 { width: 85px; }
-  .tulip-3 { width: 75px; }
-  .tulip-4 { width: 80px; }
-  
-  /* Hide only tulip 5 */
-  .tulip-5 {
-    display: none;
-  }
+  .tulip-1 { width: 95px; }
+  .tulip-2 { width: 100px; }
+  .tulip-3 { width: 90px; }
+  .tulip-4 { width: 95px; }
+  .tulip-5 { width: 98px; }
+  .tulip-6 { width: 92px; }
+  .tulip-7 { width: 97px; }
+  .tulip-8 { width: 94px; }
+  .tulip-9 { width: 93px; }
+  .tulip-10 { width: 96px; }
+  .tulip-11 { width: 91px; }
+  .tulip-12 { width: 99px; }
 }
 
 @media (min-width: 390px) and (max-width: 479px) {
   .tulip {
-    width: 100px;
+    width: 110px;
+    opacity: 0.16;
   }
   
-  .tulip-1 { width: 90px; }
-  .tulip-2 { width: 95px; }
-  .tulip-3 { width: 85px; }
-  .tulip-4 { width: 90px; }
-  .tulip-5 { width: 88px; }
+  .tulip-1 { width: 105px; }
+  .tulip-2 { width: 110px; }
+  .tulip-3 { width: 100px; }
+  .tulip-4 { width: 105px; }
+  .tulip-5 { width: 108px; }
+  .tulip-6 { width: 102px; }
+  .tulip-7 { width: 107px; }
+  .tulip-8 { width: 104px; }
+  .tulip-9 { width: 103px; }
+  .tulip-10 { width: 106px; }
+  .tulip-11 { width: 101px; }
+  .tulip-12 { width: 109px; }
 }
 
 /* ============================================
@@ -1354,16 +1436,11 @@
 
 /* Background tulips responsive adjustments */
 @media (max-width: 479px) {
-  .bg-tulip-1,
-  .bg-tulip-2 {
-    width: 140px;
-    opacity: 0.04;
-  }
-  
-  .bg-tulip-3,
-  .bg-tulip-4 {
-    width: 130px;
-    opacity: 0.04;
+  .bg-tulip-1, .bg-tulip-2, .bg-tulip-3, .bg-tulip-4,
+  .bg-tulip-5, .bg-tulip-6, .bg-tulip-7, .bg-tulip-8,
+  .bg-tulip-9, .bg-tulip-10, .bg-tulip-11, .bg-tulip-12 {
+    width: 150px;
+    opacity: 0.10; /* Mas visible sa mobile */
   }
 }
 

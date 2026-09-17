@@ -28,7 +28,7 @@
   position: absolute;
   width: 200px;
   height: auto;
-  opacity: 0.08;
+  opacity: 0.12; /* Mas visible */
   mix-blend-mode: multiply;
   filter: blur(0.5px);
 }
@@ -79,6 +79,38 @@
   width: 170px;
   transform: rotate(12deg);
   animation: float3 31s infinite ease-in-out;
+}
+
+.tulip-7 {
+  top: 35%;
+  left: 25%;
+  width: 165px;
+  transform: rotate(-18deg);
+  animation: float1 27s infinite ease-in-out;
+}
+
+.tulip-8 {
+  bottom: 30%;
+  right: 25%;
+  width: 180px;
+  transform: rotate(22deg);
+  animation: float2 29s infinite ease-in-out;
+}
+
+.tulip-9 {
+  top: 15%;
+  left: 40%;
+  width: 160px;
+  transform: rotate(-12deg);
+  animation: float3 26s infinite ease-in-out;
+}
+
+.tulip-10 {
+  bottom: 5%;
+  left: 30%;
+  width: 175px;
+  transform: rotate(16deg);
+  animation: float1 32s infinite ease-in-out;
 }
 
 @keyframes float1 {
@@ -216,16 +248,19 @@
   
   .floating-tulip {
     width: 120px;
-    opacity: 0.05;
+    opacity: 0.15; /* Mas visible */
   }
   
   .tulip-1 { width: 100px; }
   .tulip-2 { width: 110px; }
-  
-  /* Hide tulip 3 on smallest screens */
-  .tulip-3 {
-    display: none;
-  }
+  .tulip-3 { width: 105px; }
+  .tulip-4 { width: 115px; }
+  .tulip-5 { width: 108px; }
+  .tulip-6 { width: 112px; }
+  .tulip-7 { width: 102px; }
+  .tulip-8 { width: 118px; }
+  .tulip-9 { width: 106px; }
+  .tulip-10 { width: 114px; }
 }
 
 @media (min-width: 375px) and (max-width: 479px) {
@@ -243,9 +278,17 @@
   
   .floating-tulip {
     width: 140px;
+    opacity: 0.15; /* Mas visible */
   }
   
   .tulip-1 { width: 120px; }
   .tulip-2 { width: 130px; }
-  .tulip-3 { width: 110px; }
+  .tulip-3 { width: 125px; }
+  .tulip-4 { width: 135px; }
+  .tulip-5 { width: 128px; }
+  .tulip-6 { width: 132px; }
+  .tulip-7 { width: 122px; }
+  .tulip-8 { width: 138px; }
+  .tulip-9 { width: 126px; }
+  .tulip-10 { width: 134px; }
 }
