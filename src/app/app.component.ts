@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterOutlet, CommonModule],
   template: `
-    <!-- Global Floating Tulips Background - MARAMI! -->
+    <!-- Global Floating Tulips Background - 30 TULIPS! -->
     <div class="global-tulips">
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-1" alt="">
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-2" alt="">
@@ -29,6 +29,16 @@ import { CommonModule } from '@angular/common';
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-18" alt="">
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-19" alt="">
       <img src="assets/tulip-bouquet.png" class="global-tulip tulip-20" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-21" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-22" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-23" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-24" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-25" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-26" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-27" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-28" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-29" alt="">
+      <img src="assets/tulip-bouquet.png" class="global-tulip tulip-30" alt="">
     </div>
     <router-outlet></router-outlet>
   `,
@@ -53,145 +63,221 @@ import { CommonModule } from '@angular/common';
       animation-iteration-count: infinite;
     }
 
-    /* Different positions and sizes for variety */
+    /* Different positions and sizes - SPREAD SA BUONG SCREEN */
+    
+    /* UPPER LEFT CORNER - 5 tulips */
     .tulip-1 {
       width: 180px;
-      top: 5%;
-      left: 3%;
+      top: 2%;
+      left: 2%;
       animation: floatTulip1 25s infinite;
     }
 
     .tulip-2 {
-      width: 220px;
-      top: 15%;
-      right: 8%;
-      animation: floatTulip2 30s infinite;
-    }
-
-    .tulip-3 {
       width: 160px;
-      bottom: 20%;
-      left: 10%;
-      animation: floatTulip3 22s infinite;
-    }
-
-    .tulip-4 {
-      width: 200px;
-      bottom: 8%;
-      right: 5%;
-      animation: floatTulip1 28s infinite;
-    }
-
-    .tulip-5 {
-      width: 190px;
-      top: 40%;
-      right: 2%;
-      animation: floatTulip2 26s infinite;
-    }
-
-    .tulip-6 {
-      width: 170px;
-      top: 60%;
-      left: 5%;
-      animation: floatTulip3 24s infinite;
-    }
-
-    .tulip-7 {
-      width: 210px;
-      top: 25%;
-      left: 50%;
-      animation: floatTulip1 27s infinite;
-    }
-
-    .tulip-8 {
-      width: 150px;
-      bottom: 30%;
-      right: 15%;
-      animation: floatTulip2 23s infinite;
-    }
-
-    .tulip-9 {
-      width: 185px;
-      top: 70%;
-      left: 40%;
-      animation: floatTulip3 29s infinite;
-    }
-
-    .tulip-10 {
-      width: 195px;
-      bottom: 40%;
-      left: 25%;
-      animation: floatTulip1 31s infinite;
-    }
-
-    .tulip-11 {
-      width: 175px;
-      top: 12%;
-      left: 20%;
-      animation: floatTulip2 24s infinite;
-    }
-
-    .tulip-12 {
-      width: 165px;
-      top: 35%;
-      right: 25%;
-      animation: floatTulip3 26s infinite;
-    }
-
-    .tulip-13 {
-      width: 180px;
-      bottom: 15%;
-      right: 30%;
-      animation: floatTulip1 29s infinite;
-    }
-
-    .tulip-14 {
-      width: 155px;
-      top: 55%;
-      left: 18%;
+      top: 8%;
+      left: 8%;
       animation: floatTulip2 27s infinite;
     }
 
-    .tulip-15 {
+    .tulip-3 {
+      width: 170px;
+      top: 14%;
+      left: 4%;
+      animation: floatTulip3 23s infinite;
+    }
+
+    .tulip-4 {
+      width: 165px;
+      top: 5%;
+      left: 15%;
+      animation: floatTulip1 29s infinite;
+    }
+
+    .tulip-5 {
+      width: 155px;
+      top: 11%;
+      left: 12%;
+      animation: floatTulip2 26s infinite;
+    }
+
+    /* UPPER RIGHT CORNER - 5 tulips */
+    .tulip-6 {
       width: 190px;
-      bottom: 45%;
-      right: 12%;
+      top: 3%;
+      right: 3%;
+      animation: floatTulip3 28s infinite;
+    }
+
+    .tulip-7 {
+      width: 175px;
+      top: 9%;
+      right: 9%;
+      animation: floatTulip1 24s infinite;
+    }
+
+    .tulip-8 {
+      width: 165px;
+      top: 15%;
+      right: 5%;
+      animation: floatTulip2 30s infinite;
+    }
+
+    .tulip-9 {
+      width: 170px;
+      top: 6%;
+      right: 14%;
+      animation: floatTulip3 26s infinite;
+    }
+
+    .tulip-10 {
+      width: 160px;
+      top: 12%;
+      right: 11%;
+      animation: floatTulip1 28s infinite;
+    }
+
+    /* LOWER LEFT CORNER - 5 tulips */
+    .tulip-11 {
+      width: 185px;
+      bottom: 2%;
+      left: 2%;
+      animation: floatTulip2 27s infinite;
+    }
+
+    .tulip-12 {
+      width: 170px;
+      bottom: 8%;
+      left: 7%;
       animation: floatTulip3 25s infinite;
     }
 
+    .tulip-13 {
+      width: 175px;
+      bottom: 14%;
+      left: 4%;
+      animation: floatTulip1 31s infinite;
+    }
+
+    .tulip-14 {
+      width: 165px;
+      bottom: 5%;
+      left: 13%;
+      animation: floatTulip2 24s infinite;
+    }
+
+    .tulip-15 {
+      width: 160px;
+      bottom: 11%;
+      left: 10%;
+      animation: floatTulip3 29s infinite;
+    }
+
+    /* LOWER RIGHT CORNER - 5 tulips */
     .tulip-16 {
-      width: 170px;
-      top: 8%;
-      right: 40%;
-      animation: floatTulip1 30s infinite;
+      width: 180px;
+      bottom: 3%;
+      right: 3%;
+      animation: floatTulip1 26s infinite;
     }
 
     .tulip-17 {
-      width: 185px;
-      bottom: 25%;
-      left: 35%;
+      width: 175px;
+      bottom: 9%;
+      right: 8%;
       animation: floatTulip2 28s infinite;
     }
 
     .tulip-18 {
-      width: 160px;
-      top: 48%;
-      left: 8%;
-      animation: floatTulip3 32s infinite;
+      width: 170px;
+      bottom: 15%;
+      right: 5%;
+      animation: floatTulip3 23s infinite;
     }
 
     .tulip-19 {
-      width: 175px;
-      bottom: 55%;
-      right: 8%;
-      animation: floatTulip1 26s infinite;
+      width: 165px;
+      bottom: 6%;
+      right: 14%;
+      animation: floatTulip1 30s infinite;
     }
 
     .tulip-20 {
+      width: 160px;
+      bottom: 12%;
+      right: 11%;
+      animation: floatTulip2 27s infinite;
+    }
+
+    /* CENTER / MIDDLE - 10 tulips */
+    .tulip-21 {
+      width: 155px;
+      top: 25%;
+      left: 25%;
+      animation: floatTulip3 24s infinite;
+    }
+
+    .tulip-22 {
+      width: 175px;
+      top: 35%;
+      right: 28%;
+      animation: floatTulip1 29s infinite;
+    }
+
+    .tulip-23 {
+      width: 160px;
+      top: 45%;
+      left: 30%;
+      animation: floatTulip2 26s infinite;
+    }
+
+    .tulip-24 {
+      width: 180px;
+      top: 55%;
+      right: 25%;
+      animation: floatTulip3 28s infinite;
+    }
+
+    .tulip-25 {
       width: 165px;
-      top: 82%;
-      left: 60%;
+      top: 30%;
+      left: 45%;
+      animation: floatTulip1 25s infinite;
+    }
+
+    .tulip-26 {
+      width: 170px;
+      top: 40%;
+      right: 45%;
       animation: floatTulip2 31s infinite;
+    }
+
+    .tulip-27 {
+      width: 158px;
+      top: 50%;
+      left: 35%;
+      animation: floatTulip3 27s infinite;
+    }
+
+    .tulip-28 {
+      width: 172px;
+      top: 60%;
+      right: 35%;
+      animation: floatTulip1 24s infinite;
+    }
+
+    .tulip-29 {
+      width: 162px;
+      top: 65%;
+      left: 40%;
+      animation: floatTulip2 30s infinite;
+    }
+
+    .tulip-30 {
+      width: 168px;
+      top: 70%;
+      right: 40%;
+      animation: floatTulip3 26s infinite;
     }
 
     /* Floating animations with different patterns */
@@ -240,21 +326,23 @@ import { CommonModule } from '@angular/common';
       }
     }
 
-    /* Mobile: Show MORE tulips and increase opacity for visibility */
+    /* Mobile: Show ALL 30 tulips and increase opacity for visibility */
     @media (max-width: 767px) {
       .global-tulip {
-        opacity: 0.12; /* Mas visible sa mobile */
+        opacity: 0.15; /* Mas visible sa mobile */
       }
 
-      /* Keep all 20 tulips but adjust sizes */
+      /* Keep all 30 tulips but adjust sizes */
       .tulip-1, .tulip-2, .tulip-3, .tulip-4, .tulip-5,
-      .tulip-6, .tulip-7, .tulip-8, .tulip-9, .tulip-10 {
-        width: 140px;
+      .tulip-6, .tulip-7, .tulip-8, .tulip-9, .tulip-10,
+      .tulip-11, .tulip-12, .tulip-13, .tulip-14, .tulip-15 {
+        width: 130px;
       }
 
-      .tulip-11, .tulip-12, .tulip-13, .tulip-14, .tulip-15,
-      .tulip-16, .tulip-17, .tulip-18, .tulip-19, .tulip-20 {
-        width: 130px;
+      .tulip-16, .tulip-17, .tulip-18, .tulip-19, .tulip-20,
+      .tulip-21, .tulip-22, .tulip-23, .tulip-24, .tulip-25,
+      .tulip-26, .tulip-27, .tulip-28, .tulip-29, .tulip-30 {
+        width: 120px;
       }
     }
 
