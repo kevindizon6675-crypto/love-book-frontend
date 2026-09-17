@@ -101,7 +101,7 @@ export class DashboardComponent implements OnInit {
       'About Us': 'These answers mean a little more to me. Thank you for sharing the moments, thoughts, and feelings you have about us.',
       'Dreams': 'I hope you get to experience the things you dream about. Maybe some of those dreams will become memories we get to share someday.',
       'Random Questions': 'And now I know some of the random things that make you, you. Thanks for answering—even the silly ones.',
-      'Messages for You': 'Thank you for your message. It means a lot to me.'
+      'Messages for Kevs': 'Thank you for your message. It means a lot to me.'
     };
     return messages[categoryName] || 'Thank you for completing this category!';
   }

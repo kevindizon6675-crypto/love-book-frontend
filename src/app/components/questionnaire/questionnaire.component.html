@@ -55,7 +55,7 @@
         <!-- Question Text -->
         <h2 class="question-text" *ngIf="category()?.name !== 'Messages for Kevs'">{{ currentQuestion.question_text }}</h2>
         
-        <!-- Messages for You Title -->
+        <!-- Messages for Kevs Title -->
         <h2 class="question-text" *ngIf="category()?.name === 'Messages for Kevs'" style="text-align: center;">
          If there’s something you’d like to tell me, please leave a message here.
         </h2>
@@ -106,7 +106,7 @@
           </button>
         </div>
         
-        <!-- Messages for You: Submit Button Only -->
+        <!-- Messages for Kevs: Submit Button Only -->
         <div class="question-navigation" *ngIf="category()?.name === 'Messages for Kevs'" style="display: flex; justify-content: center;">
           <button 
             class="btn btn-primary btn-lg" 

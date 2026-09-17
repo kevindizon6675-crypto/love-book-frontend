@@ -106,7 +106,7 @@ export class CategoryIconComponent {
       'users': '#F97316',          // About Us - orange
       'cloud': '#8B5CF6',          // Dreams - violet
       'gamepad': '#10B981',        // Random Questions - green
-      'message-circle': '#F59E0B'  // Messages for You - amber
+      'message-circle': '#F59E0B'  // Messages for Kevs - amber
     };
     return colors[this.iconName] || '#D6336C';
   }
